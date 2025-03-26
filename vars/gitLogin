@@ -1,4 +1,5 @@
-def gitStatus(String branch, String repoUrl){
+// This is a global function, not inside a class
+def gitStatus(String branch, String repoUrl) {
     checkout([
         $class: 'GitSCM',
         branches: [[name: "*/${branch}"]],
@@ -9,4 +10,7 @@ def gitStatus(String branch, String repoUrl){
     ])
     sh "mvn clean install"
     sh "cp -R webapp/target/webapp.war ."
-} 
+}
+
+// Expose function to Jenkins pipelines
+return this
