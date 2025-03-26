@@ -12,5 +12,5 @@ def gitStatus(String branch, String repoUrl) {
     sh "cp -R webapp/target/webapp.war ."
 }
 
-// Expose function to Jenkins pipelines
+// Return an object containing functions instead of returning `this`
 return this
